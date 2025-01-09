@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="validation-form" novalidate>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <span class="error" id="email-error"></span>
+
+        <label for="country">Country:</label>
+        <input type="text" id="country" name="country" required>
+        <span class="error" id="country-error"></span>
+
+        <label for="zip">Zip Code:</label>
+        <input type="text" id="zip" name="zip" required>
+        <span class="error" id="zip-error"></span>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <span class="error" id="password-error"></span>
+
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" name="confirm-password" required>
+        <span class="error" id="confirm-password-error"></span>
+
+        <button type="submit">Submit</button>
+        <p id="success-message" hidden>High five! The form is complete!</p>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
