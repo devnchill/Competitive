@@ -21,12 +21,10 @@ const clearError = (input) => {
 const validateEmail = () => {
     if (email.validity.valueMissing) {
         showError(email, 'Email is required.');
-    } else if (!email.validity.valid) {
-    } else {
+    } else if(!email.validity.valid) {
     showError(email, 'Please enter a valid email address.');
-        clearError(email);
+    clearError(email);
   }
-    }
 }
 
 const validateCountry = () => {
