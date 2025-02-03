@@ -13,10 +13,10 @@
  *    },
  *  },
  * };
- * console.log(contains(obj, "eephant"));
- * console.log(contains(obj, "string"));
- * console.log(contains(obj, "elephant"));
- * console.log(contains(obj, 25));
+ * console.log(contains(obj, "eephant")); returns false
+ * console.log(contains(obj, "string")); returns true
+ * console.log(contains(obj, "elephant"));  returns true
+ * console.log(contains(obj, 25));  returns false
  *
  */
 
