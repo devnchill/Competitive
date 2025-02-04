@@ -16,8 +16,8 @@ function fibRec(param: number): number[] {
   } else if (param === 2) {
     return [0, 1];
   } else {
-    let prev = fibRec(param - 1);
-    let next = prev[prev.length - 1] + prev[prev.length - 2];
+    const prev = fibRec(param - 1);
+    const next = prev[prev.length - 1] + prev[prev.length - 2];
     prev.push(next);
     return prev;
   }

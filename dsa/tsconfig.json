@@ -5,7 +5,8 @@
     "lib": ["ES2015", "DOM"], // Include DOM for console.log
     "module": "CommonJS", // Default for Node.js
     "strict": true, // Enable strict type checking
-    "esModuleInterop": true // Fixes module import issues
+    "esModuleInterop": true, // Fixes module import issues
+    "outDir": "./dist"
   },
   "include": ["./**/*.ts", "recursion/all.js"], // Include all .ts files recursively
   "exclude": ["node_modules", "dist"] // Exclude compiled and dependency files
