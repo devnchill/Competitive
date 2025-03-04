@@ -94,4 +94,23 @@ class List {
     }
     return null;
   }
+  toString(): void {
+    if (!this.head) return;
+    let current = this.head;
+    let stringValue = "";
+    while (current.nextNode) {
+      stringValue += ` ( ${current.value} ) -> `;
+      current = current.nextNode;
+    }
+    stringValue += `(${current.value}) -> null`;
+    console.log(`${stringValue}`);
+  }
 }
+const list = new List();
+list.append("cat");
+list.append("rabbit");
+list.append("tiger");
+list.append("lion");
+list.append("dog");
+list.append("elephant");
+list.toString();
