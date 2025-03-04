@@ -68,4 +68,14 @@ class List {
     }
     current.nextNode = null;
   }
+  contains(query: string): boolean {
+    if (!this.head) return false;
+    if (this.head?.value === query) return true;
+    let current = this.head;
+    while (current.nextNode) {
+      current = current.nextNode;
+      if (current.value === query) return true;
+    }
+    return false;
+  }
 }
