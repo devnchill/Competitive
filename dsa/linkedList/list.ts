@@ -78,4 +78,20 @@ class List {
     }
     return false;
   }
+  find(query: string): Property<number> {
+    if (!this.head) return null;
+    let index = 1;
+    if (this.head.value === query) {
+      return index;
+    }
+    let current = this.head;
+    while (current.nextNode) {
+      current = current.nextNode;
+      index++;
+      if (current.value === query) {
+        return index;
+      }
+    }
+    return null;
+  }
 }
