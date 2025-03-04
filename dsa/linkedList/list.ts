@@ -63,10 +63,7 @@ class List {
       current = null;
       return;
     }
-    while (
-      current.nextNode?.nextNode !== null &&
-      current.nextNode?.nextNode !== undefined
-    ) {
+    while (current.nextNode?.nextNode != null) {
       current = current.nextNode;
     }
     current.nextNode = null;
