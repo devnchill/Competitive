@@ -58,12 +58,12 @@ class List {
   }
   pop(): void {
     let current = this.head;
-    if (current === null) return;
-    if (current.nextNode === null) {
-      current = null;
+    if (!current) return;
+    if (!current.nextNode) {
+      this.head = null;
       return;
     }
-    while (current.nextNode?.nextNode != null) {
+    while (current.nextNode?.nextNode) {
       current = current.nextNode;
     }
     current.nextNode = null;
