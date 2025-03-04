@@ -4,7 +4,7 @@ class List {
   constructor() {
     this.head = null;
   }
-  append(value: number): void {
+  append(value: string): void {
     const createdNode: Property<Nodes> = new Nodes(value);
     if (this.head === null) {
       this.head = createdNode;
@@ -16,7 +16,7 @@ class List {
     }
     current.nextNode = createdNode;
   }
-  prepend(value: number): void {
+  prepend(value: string): void {
     const createdNode: Property<Nodes> = new Nodes(value);
     createdNode.nextNode = this.head;
     this.head = createdNode;
@@ -43,5 +43,32 @@ class List {
       current = current.nextNode;
     }
     return current;
+  }
+  getAt(value: number): Property<Nodes> {
+    let current = this.head;
+    let frequency = 1;
+    while (current !== null) {
+      if (frequency === value) {
+        return current;
+      }
+      current = current.nextNode;
+      frequency++;
+    }
+    return null;
+  }
+  pop(): void {
+    let current = this.head;
+    if (current === null) return;
+    if (current.nextNode === null) {
+      current = null;
+      return;
+    }
+    while (
+      current.nextNode?.nextNode !== null &&
+      current.nextNode?.nextNode !== undefined
+    ) {
+      current = current.nextNode;
+    }
+    current.nextNode = null;
   }
 }

@@ -1,9 +1,9 @@
 type Property<T> = T | null;
 class Nodes {
-  value: Property<Number>;
+  value: Property<string>;
   nextNode: Property<Nodes>;
   constructor(
-    value: Property<Number> = null,
+    value: Property<string> = null,
     nextNode: Property<Nodes> = null,
   ) {
     this.value = value;
