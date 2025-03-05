@@ -1,13 +1,13 @@
-type Property<T> = T | null;
+type MaybeNull<T> = T | null;
 class Nodes {
-  value: Property<string>;
-  nextNode: Property<Nodes>;
+  value: MaybeNull<string>;
+  nextNode: MaybeNull<Nodes>;
   constructor(
-    value: Property<string> = null,
-    nextNode: Property<Nodes> = null,
+    value: MaybeNull<string> = null,
+    nextNode: MaybeNull<Nodes> = null,
   ) {
     this.value = value;
     this.nextNode = nextNode;
   }
 }
-export { Nodes, Property };
+export { Nodes, MaybeNull };

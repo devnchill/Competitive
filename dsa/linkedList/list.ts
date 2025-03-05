@@ -1,23 +1,23 @@
-import { Nodes, Property } from "./node";
+import { Nodes, MaybeNull } from "./node";
 class List {
-  head: Property<Nodes>;
+  head: MaybeNull<Nodes>;
   constructor() {
     this.head = null;
   }
   append(value: string): void {
-    const createdNode: Property<Nodes> = new Nodes(value);
+    const createdNode = new Nodes(value);
     if (this.head === null) {
       this.head = createdNode;
       return;
     }
-    let current: Property<Nodes> = this.head;
+    let current = this.head;
     while (current.nextNode !== null) {
       current = current.nextNode;
     }
     current.nextNode = createdNode;
   }
   prepend(value: string): void {
-    const createdNode: Property<Nodes> = new Nodes(value);
+    const createdNode = new Nodes(value);
     createdNode.nextNode = this.head;
     this.head = createdNode;
   }
@@ -30,21 +30,21 @@ class List {
     }
     return frequency;
   }
-  getHead(): Property<Nodes> {
+  getHead(): MaybeNull<Nodes> {
     if (this.head === null) return null;
     return this.head;
   }
-  getTail(): Property<Nodes> {
+  getTail(): MaybeNull<Nodes> {
     if (this.head === null) {
       return null;
     }
-    let current: Property<Nodes> = this.head;
+    let current = this.head;
     while (current.nextNode !== null) {
       current = current.nextNode;
     }
     return current;
   }
-  getAt(value: number): Property<Nodes> {
+  getAt(value: number): MaybeNull<Nodes> {
     let current = this.head;
     let frequency = 1;
     while (current !== null) {
@@ -56,17 +56,19 @@ class List {
     }
     return null;
   }
-  pop(): void {
+  pop(): MaybeNull<Nodes> {
     let current = this.head;
-    if (!current) return;
+    if (!current) return null;
     if (!current.nextNode) {
       this.head = null;
-      return;
+      return current;
     }
     while (current.nextNode?.nextNode) {
       current = current.nextNode;
     }
+    const removedNode = current.nextNode;
     current.nextNode = null;
+    return removedNode;
   }
   contains(query: string): boolean {
     if (!this.head) return false;
@@ -78,7 +80,7 @@ class List {
     }
     return false;
   }
-  find(query: string): Property<number> {
+  find(query: string): MaybeNull<number> {
     if (!this.head) return null;
     let index = 1;
     if (this.head.value === query) {
@@ -102,8 +104,26 @@ class List {
       stringValue += ` ( ${current.value} ) -> `;
       current = current.nextNode;
     }
-    stringValue += `(${current.value}) -> null`;
+    stringValue += `( ${current.value} ) -> null `;
     console.log(`${stringValue}`);
+  }
+  insertAt(value: string, index: number): void {
+    if (index < 0 || index > this.size()) throw new Error("Invalid Input");
+    if (index === 0) this.prepend(value);
+    if (index === this.size()) {
+      this.append(value);
+      return;
+    }
+    let current = this.head;
+    let count = 0;
+    while (current?.nextNode) {
+      count++;
+      if (count === index) {
+        const createdNode = new Nodes(value, current.nextNode);
+        current.nextNode = createdNode;
+      }
+      current = current.nextNode;
+    }
   }
 }
 const list = new List();
@@ -113,4 +133,6 @@ list.append("tiger");
 list.append("lion");
 list.append("dog");
 list.append("elephant");
+list.insertAt("puppy", 3);
+list.insertAt("lion", 0);
 list.toString();
