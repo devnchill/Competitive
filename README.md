@@ -1,2 +1,1 @@
-# WebDevExercises
-A repo where I'll fork and practice webdev concepts
+A repo where I'll practice concepts which I learn.
