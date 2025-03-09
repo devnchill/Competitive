@@ -2,7 +2,6 @@
   "compilerOptions": {
     "rootDir": ".", // Root directory for TypeScript files
     "target": "ES2015", // Use ES2015+ features
-    "lib": ["ES2015", "DOM"], // Include DOM for console.log
     "module": "node16", // Default for Node.js
     "strict": true, // Enable strict type checking
     "esModuleInterop": true, // Fixes module import issues
