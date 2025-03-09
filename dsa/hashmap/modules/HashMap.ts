@@ -136,6 +136,30 @@ class HashMap {
     }
     return arr;
   }
+
+  values(): string[] {
+    const arr = [];
+    for (const list of this.hashTable) {
+      let current = list.head;
+      while (current) {
+        arr.push(current.value);
+        current = current.next;
+      }
+    }
+    return arr;
+  }
+
+  entries(): Array<[string, string]> {
+    const arr: Array<[string, string]> = [];
+    for (const list of this.hashTable) {
+      let current = list.head;
+      while (current) {
+        arr.push([current.key, current.value]);
+        current = current.next;
+      }
+    }
+    return arr;
+  }
 }
 
 const hashMap = new HashMap();

@@ -11,17 +11,6 @@ class LinkedList {
     this.size = 0;
   }
 
-  contains(key: string): boolean {
-    let current = this.head;
-    while (current) {
-      if (current.key === key) {
-        return true;
-      }
-      current = current.next;
-    }
-    return false;
-  }
-
   append(key: string, value: string): void {
     const newNode = new Node(key, value);
     if (!this.head) {
@@ -32,17 +21,6 @@ class LinkedList {
       this.tail = newNode;
     }
     this.size++;
-  }
-
-  replace(key: string, value: string): void {
-    let current = this.head;
-    while (current) {
-      if (current.key === key) {
-        current.value = value;
-        return;
-      }
-      current = current.next;
-    }
   }
 }
 
