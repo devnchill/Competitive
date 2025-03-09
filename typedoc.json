@@ -1,0 +1,7 @@
+{
+  "entryPoints": [
+    "./dsa/hashmap/modules/HashMap.ts",
+    "./dsa/linkedList/components/list.ts"
+  ],
+  "readme": "none"
+}

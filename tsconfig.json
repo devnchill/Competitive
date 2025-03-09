@@ -7,6 +7,10 @@
     "esModuleInterop": true, // Fixes module import issues
     "outDir": "./dist"
   },
+  "typedocOptions": {
+    "name": "MyProjects",
+    "out": "Docs"
+  },
   "include": ["./**/*.ts"], // Include all .ts files recursively
   "exclude": ["node_modules", "dist"] // Exclude compiled and dependency files
 }
