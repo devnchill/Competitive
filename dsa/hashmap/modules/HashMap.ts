@@ -111,6 +111,31 @@ class HashMap {
     this.count--;
     return true;
   }
+
+  length(): number {
+    return this.count;
+  }
+
+  clear(): void {
+    for (const list of this.hashTable) {
+      list.head = null;
+      list.tail = null;
+      list.size = 0;
+    }
+    this.count = 0;
+  }
+
+  keys(): string[] {
+    const arr = [];
+    for (const list of this.hashTable) {
+      let current = list.head;
+      while (current) {
+        arr.push(current.key);
+        current = current.next;
+      }
+    }
+    return arr;
+  }
 }
 
 const hashMap = new HashMap();
