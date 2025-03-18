@@ -25,17 +25,9 @@ class Tree {
     if (root == null) {
       this.root = new Node(value);
     } else if (value < root.data) {
-      if (root.left) {
-        this.insert(value, root.left);
-      } else {
-        root.left = new Node(value);
-      }
+      this.insert(value, root.left);
     } else {
-      if (root.right) {
-        this.insert(value, root.right);
-      } else {
-        root.right = new Node(value);
-      }
+      this.insert(value, root.right);
     }
   }
 }
