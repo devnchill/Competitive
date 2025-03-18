@@ -4,6 +4,7 @@ class Tree {
   private root: MaybeNull<Node>;
 
   constructor(arr: Array<number>) {
+    arr = [...new Set(arr)].sort((a, b) => a - b);
     this.root = this.buildTree(arr, 0, arr.length - 1);
   }
 
