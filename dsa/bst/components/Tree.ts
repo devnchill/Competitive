@@ -65,4 +65,11 @@ class Tree {
     }
     return root;
   }
+
+  find(value: number, root: MaybeNull<Node> = this.root): MaybeNull<Node> {
+    if (!root) return null;
+    if (root.data == value) return root;
+    if (value < root.data) return this.find(value, root.left);
+    else return this.find(value, root.right);
+  }
 }
