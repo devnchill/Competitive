@@ -21,13 +21,14 @@ class Tree {
     return root;
   }
 
-  insert(value: number, root: MaybeNull<Node> = this.root): void {
+  insert(value: number, root: MaybeNull<Node> = this.root): MaybeNull<Node> {
     if (root == null) {
-      this.root = new Node(value);
+      return new Node(value);
     } else if (value < root.data) {
-      this.insert(value, root.left);
+      root.left = this.insert(value, root.left);
     } else {
-      this.insert(value, root.right);
+      root.right = this.insert(value, root.right);
     }
+    return root;
   }
 }
