@@ -72,4 +72,20 @@ class Tree {
     if (value < root.data) return this.find(value, root.left);
     else return this.find(value, root.right);
   }
+
+  //Iterative approach
+  levelOrder(root = this.root, callback: Function): void {
+    if (!callback) throw new Error("callback not provided");
+    if (!root) return;
+    const queue = [];
+    queue.push(root);
+    while (queue.length > 0) {
+      const current = queue.shift();
+      if (current) {
+        callback(current);
+        if (current.left) queue.push(current.left);
+        if (current.right) queue.push(current.right);
+      }
+    }
+  }
 }
